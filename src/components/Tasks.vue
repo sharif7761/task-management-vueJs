@@ -1,14 +1,16 @@
 <template>
-  <div :key="task.id" v-for="task in tasks.tasks"> 
-    <h3>{{task.text}}</h3>
+  <div :key="task.id" v-for="task in tasks"> 
+    <SingleTask :task="task" />
   </div>
 </template>
 
 <script>
+import SingleTask from './SingleTask.vue';
 export default {
-  name: 'TaskList',
-  props: {
-    tasks: Array,
-  }
+    name: "TaskList",
+    props: {
+        tasks: Array,
+    },
+    components: { SingleTask }
 }
 </script>
