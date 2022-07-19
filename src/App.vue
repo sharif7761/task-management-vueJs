@@ -26,7 +26,7 @@ export default {
         id: 1,
         text: "test text",
         day: "1st test day", 
-        reminder: true
+        reminder: false
       },
       {
         id: 2,
