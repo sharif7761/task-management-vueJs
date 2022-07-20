@@ -3,6 +3,7 @@
   <Header title="Task List" />
   <Tasks 
     @delete-task="deleteTask" 
+    @toggle-reminder="toggleReminder" 
     :tasks="tasks"
    />
 </div>
@@ -25,9 +26,12 @@ export default {
   },
   methods: {
     deleteTask(taskId){
-      console.log("taskId: " + taskId);
       this.tasks = this.tasks.filter((task) => task.id !== taskId);
-    }
+    },
+    toggleReminder(taskId){
+      this.tasks = this.tasks.map((task) => 
+      task.id === taskId ? { ...task, reminder: !task.reminder} : task
+    )}
   },
   created(){
     this.tasks= [
