@@ -1,7 +1,10 @@
 <template>
 <div class="container">
   <Header title="Task List" />
-  <Tasks :tasks="tasks" />
+  <Tasks 
+    @delete-task="deleteTask" 
+    :tasks="tasks"
+   />
 </div>
 </template>
 
@@ -18,6 +21,12 @@ export default {
   data(){
     return {
       tasks: []
+    }
+  },
+  methods: {
+    deleteTask(taskId){
+      console.log("taskId: " + taskId);
+      this.tasks = this.tasks.filter((task) => task.id !== taskId);
     }
   },
   created(){
